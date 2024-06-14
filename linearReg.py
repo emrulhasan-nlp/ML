@@ -79,7 +79,8 @@ class LinearRegression:
             self.c -= self.lr * db
     
     def predict(self, X):
-        return np.round(np.dot(X, self.W)+self.c, 4)
+        y_preds=np.round(np.dot(X, self.W)+self.c, 4)
+        return y_preds
     
 
 # Test run
