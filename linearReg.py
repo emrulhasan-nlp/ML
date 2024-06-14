@@ -6,6 +6,7 @@ Formular for simple linear regression is y=wx+c where x, and y are the independe
 w=dx/dy
 """
 
+###############Simple Linear Regression with residual Sum of square#########
 class LinearReg:
     
     def __init__(self):
@@ -95,4 +96,42 @@ if __name__ == "__main__":
 
     # Predict
     predictions = model.predict(X)
-    print(f"Predictions: {predictions}")
+    print(f"Predictions with gradient descrent: {predictions}")
+    
+#############################Linear Regression with Normal Equation###############
+"""
+y=X.W
+W=(X.T.X)^-1 X.T.y
+"""
+class LinearRegression:
+    def __init__(self):
+        self.W=None
+    
+    def fit(self, X, y):
+        N=X.shape[0]
+        X=np.hstack([np.ones((N,1)),X])
+        
+        self.W=np.linalg.inv(X.T @ X)@X.T@y
+    
+    def predict(self, X):
+        N=X.shape[0]
+        
+        X=np.hstack([np.ones((N,1)),X])
+        
+        return X @ self.W
+    
+    
+# Test run
+if __name__ == "__main__":
+    # Example data
+    X = np.array([[1, 1], [2, 2], [3, 3], [4, 4]])
+    y = np.array([6, 8, 10, 12])
+
+    # Create and train the model
+    model = LinearRegression()
+    model.fit(X, y)
+
+    # Predict
+    predictions = model.predict(X)
+    print(f"Predictions with Normation Equation: {predictions}")
+    
