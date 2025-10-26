@@ -88,7 +88,7 @@ if __name__ == "__main__":
     accuracy = np.mean(predictions == y_test)
     print(f"Test accuracy: {accuracy:.2f}")
 
-
+    # Plot the train loss vs number of iteration
     plt.plot(model.losess)
     plt.title("Changes of cost during training")
     plt.xlabel("Number of iterations")
