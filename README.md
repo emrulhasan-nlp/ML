@@ -1,2 +1,1 @@
-# This repository presents the Machine Learning Algorithms from scratches
-# It is under construction. Thanks for your patients
+# This repository provides implementations of machine learning algorithms built from scratch.
